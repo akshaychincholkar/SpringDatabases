@@ -20,5 +20,8 @@ public class SpringDbApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		logger.info("All users: {}",personJdbcDAO.findAll());
+		logger.info("=====================================");
+		logger.info("User id 10001 {} ",personJdbcDAO.findById(10001));
+		logger.info("User in Amsterdam {} ",personJdbcDAO.findPersonsByCity("Amsterdam"));
 	}
 }
