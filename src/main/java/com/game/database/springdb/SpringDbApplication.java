@@ -1,5 +1,6 @@
 package com.game.database.springdb;
 
+import com.game.database.springdb.entity.Person;
 import com.game.database.springdb.jdbc.PersonJdbcDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.Date;
 
 @SpringBootApplication
 public class SpringDbApplication implements CommandLineRunner {
@@ -23,5 +26,15 @@ public class SpringDbApplication implements CommandLineRunner {
 		logger.info("=====================================");
 		logger.info("User id 10001 {} ",personJdbcDAO.findById(10001));
 		logger.info("User in Amsterdam {} ",personJdbcDAO.findPersonsByCity("Amsterdam"));
+		if ((personJdbcDAO.deleteById(10004) == 0)) {
+			System.out.println("Person not present");
+		} else {
+			System.out.println("Person deleted");
+		}
+		logger.info("Inserting 10005 : {}",personJdbcDAO.insert(
+				new Person(10005,"Tara","Berlin",new Date())));
+		logger.info("Updating 10003 : {}",personJdbcDAO.update(
+				new Person(10003,"Peter","Utrecht",new Date())));
+
 	}
 }
