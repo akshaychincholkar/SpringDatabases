@@ -1,33 +1,30 @@
 package com.game.database.springdb.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Date;
-
-@Entity
-@Table(name = "person")
-public class Person {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//@Entity
+public class PersonJdbc {
+//    @Id
+//    @GeneratedValue
     private int id;
-    @Column(name = "NAME")
     private String name;
-    @Column(name = "LOCATION")
     private String location;
-    @Column(name = "BIRTH_DATE")
     private Date birthDate;
 
-    public Person() {
+    public PersonJdbc() {
     }
 
 
-    public Person(int id, String name, String location, Date birthDate) {
+    public PersonJdbc(int id, String name, String location, Date birthDate) {
         super();
         this.id = id;
         this.name = name;
         this.location = location;
         this.birthDate = birthDate;
     }
-    public Person(String name, String location, Date birthDate) {
+    public PersonJdbc(String name, String location, Date birthDate) {
         super();
         this.name = name;
         this.location = location;
