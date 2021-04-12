@@ -13,7 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@SpringBootApplication
+//@SpringBootApplication
 @ComponentScan("com.game.database.springdb.jpa")
 public class SpringJpaApplication implements CommandLineRunner {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -32,7 +32,7 @@ public class SpringJpaApplication implements CommandLineRunner {
 		repository.save(new Person("Darshana","Amravati",new Date()));
 		logger.info("Person with Id 1:{}",repository.findById(1));
 		logger.info("Deleted Person with id 10002");
-//		repository.deleteById(10002);
+		repository.deleteById(10002);
 		repository.save(new Person(1,"Darshana","Amravati",new SimpleDateFormat("dd-MM-yyyy").parse("27-03-1994")));//new SimpleDateFormat("yyyy-MM-dd").parse("27-03-1994")
         logger.info("Person with name Darshana is updated with birthdate as ");
 		/*logger.info("User in Amsterdam {} ",repository.findPersonsByCity("Amsterdam"));

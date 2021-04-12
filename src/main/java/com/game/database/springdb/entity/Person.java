@@ -3,7 +3,7 @@ package com.game.database.springdb.entity;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity
+@Entity(name = "personEntity")
 @Table(name = "person")
 public class Person {
     @Id
