@@ -4,9 +4,11 @@ import org.springframework.data.annotation.TypeAlias;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 @Entity
-@Table
+//@Table(name = "address")
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +33,39 @@ public class Address {
 
     @Lob
     private byte[] image;
+//      many - 1 without ftc
+/*    @OneToMany
+    private List<Student> children;
+
+    public List<Student> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Student> children) {
+        this.children = children;
+    }*/
+    //  1-Many without FTC
+/*    @ManyToOne
+    private Student student;
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }*/
+    //    many-many
+//    @ManyToMany(targetEntity=Student.class,mappedBy="address")
+//    private Set address;
+
+/*    public Set getAddress() {
+        return address;
+    }
+
+    public void setAddress(Set address) {
+        this.address = address;
+    }*/
 
     public Address() {
     }
