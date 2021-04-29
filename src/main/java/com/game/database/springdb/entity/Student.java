@@ -35,7 +35,7 @@ public class Student {
 //    private Address address;
 
 //    1-many with FTC
-/*    @OneToMany(fetch=FetchType.LAZY, targetEntity=Address.class, cascade=CascadeType.ALL)
+    @OneToMany(fetch=FetchType.LAZY, targetEntity=Address.class, cascade=CascadeType.ALL)
     @JoinColumn(name = "aid", referencedColumnName="id")
     private Set children;
 
@@ -45,9 +45,9 @@ public class Student {
 
     public void setChildren(Set children) {
         this.children = children;
-    }*/
+    }
 //        many-1 with TC
-    @ManyToOne(cascade = CascadeType.ALL)
+/*    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="aid",referencedColumnName="address_id")
     private Address parent;
 
@@ -57,7 +57,7 @@ public class Student {
 
     public void setParent(Address parent) {
         this.parent = parent;
-    }
+    }*/
 //  many-1 without TC
 /*@ManyToOne
 private Address address;
@@ -96,19 +96,19 @@ private Address address;
         this.address = address;
     }*/
 //    1-many with FTC
-/*    public Student(int id, String name, String city, Set children) {
+    public Student(int id, String name, String city, Set children) {
         this.id = id;
         this.name = name;
         this.city = city;
         this.children = children;
-    }*/
+    }
 //        many-1 with TC
-    public Student(int id, String name, String city, Address parent) {
+/*    public Student(int id, String name, String city, Address parent) {
         this.id = id;
         this.name = name;
         this.city = city;
         this.parent = parent;
-    }
+    }*/
 //        many-many
 
 /*    public Student(int id, String name, String city) {
@@ -152,4 +152,14 @@ private Address address;
     public void setAddress(Address address) {
         this.address = address;
     }*/
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", city='" + city + '\'' +
+                ", children=" + children +
+                '}';
+    }
 }

@@ -37,7 +37,9 @@
 
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">create</property>
+        <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
 
-        <!--<mapping class="au.com.ozblog.hibernate.h2.example.User"/>-->
+        <mapping class="com.game.database.springdb.entity.Student"/>
+        <mapping class="com.game.database.springdb.entity.Address"/>
     </session-factory>
 </hibernate-configuration>

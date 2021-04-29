@@ -74,12 +74,12 @@ public class SpringHibernateApplication implements CommandLineRunner {
         address.setChildren(students);
         addressRepository.save(address);*/
 //        many-1
-        Address address = new Address(1,"Stree1","Delhi",true,21.21,new Date(),data);
+/*        Address address = new Address(1,"Stree1","Delhi",true,21.21,new Date(),data);
         Student student1=new Student(1,"Akshay","Amravati",address);
         Student student2=new Student(2,"Darshana","Amravati",address);
 
         studentRepository.save(student1);
-        studentRepository.save(student2);
+        studentRepository.save(student2);*/
 
 //        many-many
 /*        Address address1 = new Address(1,"Street1","Delhi",true,21.21,new Date(),data);

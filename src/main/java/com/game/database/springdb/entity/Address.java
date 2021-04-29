@@ -3,6 +3,7 @@ package com.game.database.springdb.entity;
 import org.springframework.data.annotation.TypeAlias;
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -134,5 +135,18 @@ public class Address {
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "addressId=" + addressId +
+                ", street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", isOpen=" + isOpen +
+                ", x=" + x +
+                ", addedDate=" + addedDate +
+//                ", image=" + Arrays.toString(image) +
+                '}';
     }
 }
