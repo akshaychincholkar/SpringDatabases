@@ -4,6 +4,10 @@ import com.game.database.springdb.entity.Address;
 import com.game.database.springdb.entity.Student;
 import com.game.database.springdb.jpa.AddressRepository;
 import com.game.database.springdb.jpa.StudentRepository;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,14 +19,14 @@ import java.util.*;
 
 @SpringBootApplication
 @ComponentScan("com.game.database.springdb.jpa")
-public class SpringHibernateApplication implements CommandLineRunner {
+public class SpringHibernateMapping implements CommandLineRunner {
     @Autowired
     StudentRepository studentRepository;
 
     @Autowired
     AddressRepository addressRepository;
     public static void main(String[] args) {
-        SpringApplication.run(SpringHibernateApplication.class, args);
+        SpringApplication.run(SpringHibernateMapping.class, args);
     }
 
     @Override
@@ -31,6 +35,7 @@ public class SpringHibernateApplication implements CommandLineRunner {
         FileInputStream fileInputStream = new FileInputStream("H:\\workspace\\Neon\\spring-db\\src\\main\\resources\\pic.jpg");
         byte[] data = new byte[fileInputStream.available()];
         fileInputStream.read();
+
 //        1-1
 /*        Address address = new Address(1,"Stree1","Delhi",true,21.21,new Date(),data);
         studentRepository.save(new Student(1,"Akshay","Amravati",address));*/
