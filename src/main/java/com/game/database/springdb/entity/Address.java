@@ -1,5 +1,6 @@
 package com.game.database.springdb.entity;
 
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.annotation.TypeAlias;
 
 import javax.persistence.*;
@@ -9,6 +10,8 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 //@Table(name = "address")
 public class Address {
     @Id

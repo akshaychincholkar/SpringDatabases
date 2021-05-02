@@ -25,6 +25,7 @@ public class SpringHibernateWithSession implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         System.out.println(sessionFactory);
         System.out.println("is closed: "+sessionFactory.isClosed());
@@ -48,17 +49,35 @@ public class SpringHibernateWithSession implements CommandLineRunner {
         session.save(student1);
         tx.commit();
         session.close();
+
+
         session = sessionFactory.openSession();
         //hql example
-        String hqlquery = "from Address";
+        String hqlquery = "from Address ";
         Query query = session.createQuery(hqlquery);
         List<Address> list = query.list();
         System.out.println(list);
 
         session.close();
 
+        //level 1 cache
+/*        session = sessionFactory.openSession();
+        Address address1= session.get(Address.class,2);
+        System.out.println(address1);
+        Address address3= session.get(Address.class,2);
+        System.out.println(address3);
+        System.out.println("****Server is running*****");*/
 
-        System.out.println("****Server is running*****");
+        Session session2 = sessionFactory.openSession();
+        Address address4= session2.get(Address.class,2);
+        System.out.println(address4);
+        session2.close();
+
+        Session session3 = sessionFactory.openSession();
+        Address address5= session3.get(Address.class,2);
+        System.out.println(address5);
+        session3.close();
     }
+
 }
 
