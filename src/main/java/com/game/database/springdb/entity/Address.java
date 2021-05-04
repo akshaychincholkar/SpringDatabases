@@ -19,7 +19,7 @@ public class Address {
     @Column(name = "address_id")
     private int addressId;
 
-    @Column(name = "STREET",length = 50)
+    @Column(name = "street",length = 50)
     private String street;
 
     @Column(name = "CITY",length = 100)
